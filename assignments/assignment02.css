@@ -4,6 +4,7 @@
 /*PART A*/
 body { background-color: skyblue; }
 #igottabeme { font-family: Arial, Helvetica, sans-serif;}
+.classy { margin-left: 10px; }
 
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
