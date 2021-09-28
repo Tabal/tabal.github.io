@@ -1,7 +1,7 @@
 /*CSS for assignment02.html*/
 
 /* --- put your css here --- */ 
-
+body { color: skyblue;}
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
     background-color: gray;
