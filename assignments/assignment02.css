@@ -7,7 +7,7 @@ body { background-color: skyblue; }
 .classy { margin-left: 10px; }
 
 /*PART B*/
-div { margin-bottom: 50px;}
+div { margin-bottom: 50px; }
 span { 
   width: 100px; 
   height: 50px; 
@@ -15,6 +15,9 @@ span {
   border: solid blue 5px;
   background-color: yellow;
 }
+span.a { word-wrap: normal; }
+span.b { display: inline-block; }
+span.c { display}
 
 /* --- pre-existing css --- */
 .stripey tr:nth-child(even) {
