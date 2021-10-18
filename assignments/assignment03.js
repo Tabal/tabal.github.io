@@ -38,3 +38,8 @@ function sub1 (elem) {
       elem.children[2].innerHTML = currentScore - 1;
     }
 }
+
+// create a function to calculate and change the totals in the totals row
+function calcTotal () {
+    let total = Number.parseInt(document.getElementById(totals )
+}
