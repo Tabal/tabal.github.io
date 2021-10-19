@@ -26,9 +26,10 @@ function add1 (elem) {
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore + 1;
   }
-  let scoreTotal = elem[totals].children[2].innerHTML;
-  scoreTotal = Number.parseInt(scoreTotal) + 1;
-  elem[totals].children[2].innerHTML = scoreTotal;
+  let totals = document.getElementById(totals.toString());
+  let scoreTotal = totals.children[2].innerHTML;
+  scoreTotal = Number.parseInt(scoreTotal);
+  elem[totals].children[2].innerHTML = scoreTotal + 1;
 }
 
 // create a "sub1" function
