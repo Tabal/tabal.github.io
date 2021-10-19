@@ -26,6 +26,7 @@ function add1 (elem) {
     currentScore = Number.parseInt(currentScore);
     elem.children[2].innerHTML = currentScore + 1;
   }
+  elem[totals].children[2].innerHTML += 1;
 }
 
 // create a "sub1" function
@@ -37,9 +38,6 @@ function sub1 (elem) {
       currentScore = Number.parseInt(currentScore);
       elem.children[2].innerHTML = currentScore - 1;
     }
+    elem[totals].children[2].innerHTML -= 1;
 }
-/*
-// create a function to calculate and change the totals in the totals row
-function calcTotal () {
-    let total = Number.parseInt(document.getElementById(totals )
-}*/
+
