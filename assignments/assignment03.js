@@ -87,9 +87,8 @@ function overUpdate (elem, firstStep) {
   if(elem.children[3].innerHTML == "-") {
     if(firstStep == 1) //If increasing the score for the first stroke
       elem.children[3].innerHTML = "-3";
-    else if(firstStep == -1) //If decreasing the score for the first stroke
+    else //If decreasing the score for the first stroke
       elem.children[3].innerHTML = "-5";
-    else break;
   }
   else {
     let currentScore = elem.children[2].innerHTML;
