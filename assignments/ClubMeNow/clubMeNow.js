@@ -5,8 +5,8 @@ Assignment 4
 The purpose of this program is to allow the user to track their distances for each of the clubs they use
 Some functions include reseting all distances, adding a new club, 
 and undoing a recent change to the last entered distance*/
-
 /* -------------------------------
+
 Functions in this app:
 
 clubDistanceList.html
@@ -100,7 +100,6 @@ function displayClubDistanceEntryForm(c) {
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
         // your code here !
-		
 }
 
 // create a new (default) "clubs" array
