@@ -47,11 +47,15 @@
 	// retrieve the "clubs" array
 	let clubs = JSON.parse(localStorage.getItem('clubs'));
 	// display the full clubName of the user-chosen club
-	let newClubName ;
+	let newClubName;
 	let newClubDistances;
 	
 	function addClub() {
         // your code here
+		newClubName = document.getElementsByName("clubName");
+		newClubDistances = 0;
+		clubs.push((clubs[0,0] - 1), newClubName, newClubName, 0, 0, 0, 0, 0.0, 0, 0);
+		window.locaion.href = "clubDistanceList.html";
 	}
 	
 	// navigate to club distance LIST screen
