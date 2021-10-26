@@ -54,7 +54,7 @@
         // your code here
 		newClubName = document.getElementById("clubName").value;
 		newClubDistances = 0, 0, 0, 0, 0, 0, 0;
-		clubs.push(clubs[0][0] - 1, "", newClubName, newClubDistances);
+		clubs.splice(0, 0, [clubs[0][0] - 1, "", newClubName, newClubDistances]);
 		localStorage.setItem("clubs", str);
 		window.location.href = "clubDistanceList.html";
 	}
