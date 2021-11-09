@@ -81,7 +81,7 @@ function loadContent() {
       newConfirmedOver1000 = [];
       
 	    for (let c of covidJsObj.Countries) {
-        if (c.NewConfirmed > 5000) {
+        if (c.NewConfirmed > 1000) {
           newConfirmedOver1000.push({ 
             "Slug": c.Slug, 
             "NewConfirmed": c.NewConfirmed, 
@@ -228,14 +228,19 @@ let populations = {
 // new array 
 // loop through all covidJsObj.Countries[i] 
 // push all info i need
-/*
-let newArray = [] 
+
+//Making an array out of the population object
+let popArr = []
+for([p, v] of Object.entries(populations))
+    popArr.push([p, v])
+
+let dataArr = [] 
 for (let i=0; i<covidJsObj.Countries.length; i++) {
-  newArray.push({
+  dataArr.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
-    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed
-    // continue here...
+    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
+
+    
   })
   
 }
-*/
