@@ -235,8 +235,8 @@ for (let i=0; i<covidJsObj.Countries.length; i++) {
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
     "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
     "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
-    "Population": populations[covidJsObj.Countries[i].Slug] //Population is being matched via matching the slug and the country name in the population object
-    
+    "Population": populations[covidJsObj.Countries[i].Slug], //Population is being matched via matching the slug and the country name in the population object. Not going to lie, this is actually pretty cool.
+    "TotalConfirmedPer100000": populations[covidJsObj.Countries[i].Slug]
   })
   
 }
