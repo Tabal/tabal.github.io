@@ -229,17 +229,12 @@ let populations = {
 // loop through all covidJsObj.Countries[i] 
 // push all info i need
 
-//Making an array out of the population object
-let popArr = []
-for([p, v] of Object.entries(populations))
-    popArr.push([p, v])
-
 let dataArr = [] 
 for (let i=0; i<covidJsObj.Countries.length; i++) {
   dataArr.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
     "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
-
+    "Population": populations[c.Slug]
     
   })
   
