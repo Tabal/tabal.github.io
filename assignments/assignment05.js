@@ -234,7 +234,8 @@ for (let i=0; i<covidJsObj.Countries.length; i++) {
   dataArr.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
     "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
-    "Population": populations[c.Slug]
+    "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
+    "Population": populations[covidJsObj.Countries[i].Slug] //Population is being matched via matching the slug and the country name in the population object
     
   })
   
