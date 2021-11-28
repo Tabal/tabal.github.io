@@ -30,12 +30,40 @@ let chartData = {
       label: 'oranges',
       data: [2, 29, 5, 5, 2, 3, 10],
       backgroundColor: "rgba(255,140,0,0.4)"
+    }, {
+      label: 'lemons',
+      data: [1, 2, 3, 4, 5, 24, 13],
+      backgroundColor: "rgba(255,140,140,0.4"
     }]
   },
   options: {
+    animations: { //Animation allows for showing and hiding data, dynamically sizing the bars
+      transitions: {
+        show: {
+          animations: {
+            x: {
+              from: 0
+            },
+            y: {
+              from: 0
+            }
+          }
+        },
+        hide: {
+          animations: {
+            x: {
+              to: 0
+            },
+            y: {
+              to: 0
+            }
+          }
+        }
+      }
+    },
     title: {
       display: true,
-      text: 'Apples and Oranges'
+      text: 'Apples, Oranges and Lemons'
     },
     scales: {
       yAxes: [{
@@ -43,7 +71,10 @@ let chartData = {
           // logarithmic scale ignores maxTicksLimit
           maxTicksLimit: 11,
           callback: function(label, index, labels) {
-            return (   label/1000 > 9 
+            return (   label/1000 == 10000
+                    || label/1000 == 1000
+                    || label/1000 == 100
+                    || label/1000 == 10
                     || label/1000 == 1 
                     || label/1000 == 0.1 
                     || label/1000 == 0.01) 
@@ -89,7 +120,7 @@ function loadContent() {
 	    for (let c of covidJsObj.Countries) {
         if (c.TotalDeaths > 50000) {
           newConfirmedOver1000.push({ 
-            "Slug": "\"" + c.Slug + "\"",
+            "Slug": c.Slug,
             "TotalConfirmed": c.TotalConfirmed,
             "TotalDeaths": c.TotalDeaths,
             "Population": populations[c.Slug], //Population is being matched via matching the slug and the country name in the population object. Not going to lie, this is actually pretty cool.
