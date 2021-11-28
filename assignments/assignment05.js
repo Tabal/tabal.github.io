@@ -81,7 +81,7 @@ function loadContent() {
       newConfirmedOver1000 = [];
       
       // convert object to 2d array
-      var popArr = []
+      let popArr = []
       for([p, v] of Object.entries(populations)) 
         popArr[p] = v
       // console.log( popArr )
@@ -128,7 +128,7 @@ function loadContent() {
 } // end function loadContent() 
 
 // data from: https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population
-var populations = {
+let populations = {
   'china' : 1405137440,
 'india' : 1369152434,
 'united-states' : 330578332,
