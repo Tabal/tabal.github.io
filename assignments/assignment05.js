@@ -80,12 +80,19 @@ function loadContent() {
       covidJsObj = JSON.parse(covidJson);
       newConfirmedOver1000 = [];
       
+      // convert object to 2d array
+      var popArr = []
+      for([p, v] of Object.entries(populations)) 
+        popArr[p] = v
+      // console.log( popArr )
+      
 	    for (let c of covidJsObj.Countries) {
-        if (c.NewConfirmed > 1000) {
+        if (c.NewConfirmed > 5000) {
           newConfirmedOver1000.push({ 
             "Slug": c.Slug, 
             "NewConfirmed": c.NewConfirmed, 
-            "NewDeaths": c.NewDeaths
+            "NewDeaths": c.NewDeaths,
+            "Population": popArr[c.Slug]
           });
         }
       }
@@ -108,7 +115,7 @@ function loadContent() {
         = newConfirmedOver1000.map( 
           (x) => x.NewDeaths );
       chartData.options.title.text 
-        = "Covid 19 Hotspots as of " + dayjs().format('MMMM DD, YYYY');
+        = "Covid 19 Hotspots" ;
       myChart = new Chart(ctx, chartData); 
 
     } // end if
@@ -121,7 +128,7 @@ function loadContent() {
 } // end function loadContent() 
 
 // data from: https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population
-let populations = {
+var populations = {
   'china' : 1405137440,
 'india' : 1369152434,
 'united-states' : 330578332,
