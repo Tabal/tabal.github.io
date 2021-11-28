@@ -87,12 +87,13 @@ function loadContent() {
       // console.log( popArr )
       
 	    for (let c of covidJsObj.Countries) {
-        if (c.NewConfirmed > 5000) {
+        if (c.TotalDeaths > 50000) {
           newConfirmedOver1000.push({ 
-            "Slug": c.Slug, 
-            "NewConfirmed": c.NewConfirmed, 
-            "NewDeaths": c.NewDeaths,
-            "Population": popArr[c.Slug]
+            "Slug": "\"" + c.Slug + "\"",
+            "TotalConfirmed": c.TotalConfirmed,
+            "TotalDeaths": c.TotalDeaths,
+            "Population": populations[c.Slug], //Population is being matched via matching the slug and the country name in the population object. Not going to lie, this is actually pretty cool.
+            "TotalConfirmedPer100000": (c.TotalConfirmed / populations[c.Slug]) * 100000
           });
         }
       }
@@ -115,7 +116,7 @@ function loadContent() {
         = newConfirmedOver1000.map( 
           (x) => x.NewDeaths );
       chartData.options.title.text 
-        = "Covid 19 Hotspots" ;
+        = "Covid 19 Hotspots as of " + dayjs().format('MMMM DD, YYYY');
       myChart = new Chart(ctx, chartData); 
 
     } // end if
@@ -238,12 +239,13 @@ let populations = {
 
 let dataArr = [] 
 for (let i=0; i<covidJsObj.Countries.length; i++) {
-  dataArr.push({
-    "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
-    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
-    "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
-    "Population": populations[covidJsObj.Countries[i].Slug], //Population is being matched via matching the slug and the country name in the population object. Not going to lie, this is actually pretty cool.
-    "TotalConfirmedPer100000": (covidJsObj.Countries[i].TotalConfirmed / populations[covidJsObj.Countries[i].Slug]) * 100000
-  })
-  
+  if (covidJsObj.Countriesp[i].TotalDeaths > 50000) {
+    dataArr.push({
+      "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
+      "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
+      "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
+      "Population": populations[covidJsObj.Countries[i].Slug], //Population is being matched via matching the slug and the country name in the population object. Not going to lie, this is actually pretty cool.
+      "TotalConfirmedPer100000": (covidJsObj.Countries[i].TotalConfirmed / populations[covidJsObj.Countries[i].Slug]) * 100000
+    })
+  }
 }
