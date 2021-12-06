@@ -110,6 +110,9 @@ function loadContent() {
       covidJson = this.responseText;
       covidJsObj = JSON.parse(covidJson);
       newConfirmedOver1000 = [];
+            
+      //Save to local storage
+      window.localStorage.setItem('covidJsObj', JSON.stringify(covidJsObj));
       
       // convert object to 2d array
       let popArr = []
